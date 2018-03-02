@@ -14,7 +14,7 @@ return [
         'setting',
         'media',
         'tag',
-        'page',
+        //'page',
         'translation',
     ],
 
