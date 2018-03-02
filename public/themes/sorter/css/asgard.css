@@ -1,0 +1,175 @@
+ul.notifications-list li {
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+}
+.notificationsCounter {
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+}
+.notificationIcon {
+  font-size: 30px;
+}
+.removeNotification {
+  z-index: 999;
+  font-size: 12px !important;
+  position: absolute;
+  top: -35px;
+  right: 0px;
+}
+.navbar-nav > .messages-menu > .dropdown-menu > li .menu > li > a > h4 > small {
+  position: absolute;
+  bottom: -30px;
+  right: 0px;
+  top: auto;
+}
+.btn-upload {
+  margin-bottom: 12px;
+}
+.jsThumbnailImageWrapper {
+  padding-top: 8px;
+  overflow-y: auto;
+}
+.jsThumbnailImageWrapper figure {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  padding: 3px;
+  border-radius: 3px;
+  vertical-align: bottom;
+}
+.jsThumbnailImageWrapper i.removeIcon {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  color: #f56954;
+  font-size: 2em;
+  background: white;
+  border-radius: 20px;
+  height: 25px;
+}
+figure.ui-state-highlight {
+  border: none;
+  width: 100px;
+  height: 0;
+}
+footer.main-footer a {
+  cursor: pointer;
+}
+footer.main-footer p.text-muted {
+  margin-bottom: 0;
+}
+body {
+  font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+.skin-blue .main-header .logo {
+  background-color: #f0f1f4;
+  color: #32325d;
+  border-bottom: 0 solid transparent;
+}
+.skin-blue .main-header .logo:hover {
+  background-color: #f0f1f4;
+}
+.skin-blue .wrapper,
+.skin-blue .main-sidebar,
+.skin-blue .left-side {
+  background: #f0f1f4;
+}
+.skin-blue .sidebar-menu > li.menu-title {
+  color: #32325d;
+  background: #f0f1f4;
+  padding: 10px 25px 10px 15px;
+  font-size: 14px;
+}
+.skin-blue .sidebar a {
+  color: #6d7477;
+}
+.skin-blue .sidebar-menu > li:hover > a,
+.skin-blue .sidebar-menu > li.active > a,
+.skin-blue .sidebar-menu > li.menu-open > a {
+  color: #32325d;
+  background: #f0f1f4;
+}
+.skin-blue .sidebar-menu > li.active > a {
+  border-left-color: #3c8dbc;
+}
+.skin-blue .sidebar-menu > li > .treeview-menu {
+  margin: 0 1px;
+  background: #2c3b41;
+}
+.content-wrapper {
+  background: #fafafa;
+}
+.skin-blue .main-header .navbar {
+  background-color: #fafafa;
+}
+.skin-blue .main-header .navbar .sidebar-toggle {
+  color: #32325d;
+}
+.skin-blue .main-header .navbar .nav > li > a {
+  color: #32325d;
+}
+.main-footer {
+  background: #fafafa;
+  padding: 15px;
+  color: #444;
+  border-top: 0;
+}
+.box {
+  -webkit-box-shadow: 0 0 0 0.5px rgba(49, 49, 93, 0.03), 0 2px 5px 0 rgba(49, 49, 93, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+          box-shadow: 0 0 0 0.5px rgba(49, 49, 93, 0.03), 0 2px 5px 0 rgba(49, 49, 93, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+  border-top: 0;
+}
+.box.box-primary {
+  border: 0;
+}
+.sidebar-menu .append {
+  margin-top: -44px;
+}
+.sidebar-menu .treeview-menu .append {
+  margin-top: -30px;
+}
+.skin-blue .sidebar-menu .append:hover,
+.skin-blue .sidebar-menu > li.active > a.append {
+  color: #fff;
+  background: none;
+  border: 0;
+}
+.sidebar-mini.sidebar-collapse .sidebar-menu a.append,
+.sidebar-mini.sidebar-collapse .sidebar-menu li.menu-title {
+  display: none;
+}
+.checkbox label {
+  padding-left: 0;
+}
+.checkbox label div {
+  margin-right: 5px;
+  margin-top: -2px;
+}
+.tool-bar .search {
+  float: right;
+}
+.content .content-header {
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 20px;
+  margin-top: -30px;
+}
+.content .media-breadcrumb .el-breadcrumb,
+.content .content-header .el-breadcrumb {
+  float: right;
+  background: transparent;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 12px;
+  padding: 7px 5px;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  border-radius: 2px;
+}
+.el-tabs__header .error {
+  color: #dd4b39;
+}
