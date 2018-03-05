@@ -47,4 +47,5 @@
             <a href="{{ route('register')}}" class="text-center">{{ trans('user::auth.register')}}</a>
         @endif
     </div>
+    <a href="login/google">Google</a>
 @stop

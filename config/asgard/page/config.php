@@ -34,7 +34,8 @@ return [
     | Array of middleware that will be applied on the page module front end routes
     |--------------------------------------------------------------------------
     */
-    'middleware' => ['auth.admin'],
+    'middleware' => [],
+    // 'middleware' => ['auth.admin'],
     /*
      |--------------------------------------------------------------------------
      | Array of directories to ignore when selecting the template for a page
