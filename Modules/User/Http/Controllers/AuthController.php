@@ -168,7 +168,6 @@ class AuthController extends BasePublicController
     private function findOrCreateUser($user, $provider, $password)
     {
         if ($userExist = User::where('email', '=', $user->email)->first()) {
-            // if (false) {
             if ($userProvider = User::where($provider . '_id', '=', $user->id)->first()) { // User is already registered with this oauth service
                 return $userProvider;
             } else { // User exists but has never used this service provider before

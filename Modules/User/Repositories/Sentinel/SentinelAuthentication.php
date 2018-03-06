@@ -175,4 +175,29 @@ class SentinelAuthentication implements Authentication
     {
         return Sentinel::login($user);
     }
+
+    public function authenticateOauth($user, $remember = false, $login = true)
+    {
+        $response = $this->fireEvent('sentinel.authenticating', $user, true);
+
+        if ($response === false) {
+            return false;
+        }
+
+        if (! $this->cycleCheckpoints('login', $user)) {
+            return false;
+        }
+
+        if ($login === true) {
+            $method = $remember === true ? 'loginAndRemember' : 'login';
+
+            if (! $user = $this->{$method}($user)) {
+                return false;
+            }
+        }
+
+        $this->fireEvent('sentinel.authenticated', $user);
+
+        return $this->user = $user;
+    }
 }
