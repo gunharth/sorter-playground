@@ -33,9 +33,9 @@ class LaravelPermissionsUserRepository implements UserRepository
 
     public function __construct()
     {
-        $this->user = Sentinel::getUserRepository()->createModel();
-        //$this->user = User->createModel();
-        $this->role = Sentinel::getRoleRepository()->createModel();
+        // $this->user = Sentinel::getUserRepository()->createModel();
+        $this->user = app(User::class);
+        // $this->role = Sentinel::()->createModel();
     }
 
     /**

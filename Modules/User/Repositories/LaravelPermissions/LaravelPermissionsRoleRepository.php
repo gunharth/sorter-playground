@@ -22,7 +22,7 @@ class LaravelPermissionsRoleRepository implements RoleRepository
 
     public function __construct()
     {
-        $this->role = Auth::getRoleRepository()->createModel();
+        // $this->role = Auth::getRoleRepository()->createModel();
     }
 
     /**
