@@ -1,8 +1,9 @@
 <?php
 
-namespace Modules\User\Repositories\Sentinel;
+namespace Modules\User\Repositories\LaravelPermissions;
 
-use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+// use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -12,7 +13,7 @@ use Modules\User\Events\RoleWasCreated;
 use Modules\User\Events\RoleWasUpdated;
 use Modules\User\Repositories\RoleRepository;
 
-class SentinelRoleRepository implements RoleRepository
+class LaravelPermissionsRoleRepository implements RoleRepository
 {
     /**
      * @var \Cartalyst\Sentinel\Roles\EloquentRole
@@ -21,7 +22,7 @@ class SentinelRoleRepository implements RoleRepository
 
     public function __construct()
     {
-        $this->role = Sentinel::getRoleRepository()->createModel();
+        $this->role = Auth::getRoleRepository()->createModel();
     }
 
     /**
@@ -123,7 +124,7 @@ class SentinelRoleRepository implements RoleRepository
      */
     public function findByName($name)
     {
-        return Sentinel::findRoleByName($name);
+        return Auth::findRoleByName($name);
     }
 
     /**

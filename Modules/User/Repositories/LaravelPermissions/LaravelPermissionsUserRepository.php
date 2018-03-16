@@ -1,14 +1,17 @@
 <?php
 
-namespace Modules\User\Repositories\Sentinel;
+namespace Modules\User\Repositories\LaravelPermissions;
 
-use Cartalyst\Sentinel\Laravel\Facades\Activation;
-use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+// use Cartalyst\Sentinel\Laravel\Facades\Activation;
+// use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Modules\User\Entities\Sentinel\User;
+// use Modules\User\Entities\Sentinel\User;
+use Modules\User\Entities\LaravelPermissions\User;
 use Modules\User\Events\UserHasRegistered;
 use Modules\User\Events\UserIsCreating;
 use Modules\User\Events\UserIsUpdating;
@@ -17,7 +20,7 @@ use Modules\User\Events\UserWasUpdated;
 use Modules\User\Exceptions\UserNotFoundException;
 use Modules\User\Repositories\UserRepository;
 
-class SentinelUserRepository implements UserRepository
+class LaravelPermissionsUserRepository implements UserRepository
 {
     /**
      * @var \Modules\User\Entities\Sentinel\User
@@ -31,6 +34,7 @@ class SentinelUserRepository implements UserRepository
     public function __construct()
     {
         $this->user = Sentinel::getUserRepository()->createModel();
+        //$this->user = User->createModel();
         $this->role = Sentinel::getRoleRepository()->createModel();
     }
 

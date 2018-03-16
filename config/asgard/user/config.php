@@ -7,7 +7,7 @@ return [
     |--------------------------------------------------------------------------
     | Current default and only option : Sentinel
     */
-    'driver' => 'Sentinel',
+    'driver' => 'LaravelPermissions',
     /*
     |--------------------------------------------------------------------------
     | Define which route to redirect to after a successful login

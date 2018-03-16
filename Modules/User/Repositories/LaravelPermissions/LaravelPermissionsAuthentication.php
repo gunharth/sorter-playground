@@ -1,17 +1,21 @@
 <?php
 
-namespace Modules\User\Repositories\Sentinel;
+namespace Modules\User\Repositories\LaravelPermissions;
 
-use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
-use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
-use Cartalyst\Sentinel\Laravel\Facades\Activation;
-use Cartalyst\Sentinel\Laravel\Facades\Reminder;
-use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+// use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
+// use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
+// use Cartalyst\Sentinel\Laravel\Facades\Activation;
+// use Cartalyst\Sentinel\Laravel\Facades\Reminder;
+//use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Cartalyst\Sentinel\Users\UserInterface;
-use Modules\User\Contracts\Authentication;
-use Modules\User\Events\UserHasActivatedAccount;
 
-class SentinelAuthentication implements Authentication
+use Illuminate\Support\Facades\Auth;
+use Modules\User\Contracts\Authentication;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Modules\User\Events\UserHasActivatedAccount;
+use Modules\User\Entities\LaravelPermissions\User;
+
+class LaravelPermissionsAuthentication implements Authentication
 {
     /**
      * Authenticate a user
@@ -22,7 +26,7 @@ class SentinelAuthentication implements Authentication
     public function login(array $credentials, $remember = false)
     {
         try {
-            if (Sentinel::authenticate($credentials, $remember)) {
+            if (Auth::attempt($credentials, $remember)) {
                 return false;
             }
 
@@ -43,7 +47,7 @@ class SentinelAuthentication implements Authentication
      */
     public function register(array $user)
     {
-        return Sentinel::getUserRepository()->create((array) $user);
+        return Auth::getUserRepository()->create((array) $user);
     }
 
     /**
@@ -63,7 +67,7 @@ class SentinelAuthentication implements Authentication
      */
     public function logout()
     {
-        return Sentinel::logout();
+        return Auth::logout();
     }
 
     /**
@@ -74,7 +78,7 @@ class SentinelAuthentication implements Authentication
      */
     public function activate($userId, $code)
     {
-        $user = Sentinel::findById($userId);
+        $user = Auth::findById($userId);
 
         $success = Activation::complete($user, $code);
         if ($success) {
@@ -125,11 +129,12 @@ class SentinelAuthentication implements Authentication
      */
     public function hasAccess($permission)
     {
-        if (! Sentinel::check()) {
+        return true;
+        if (! Auth::check()) {
             return false;
         }
 
-        return Sentinel::hasAccess($permission);
+        return Auth::hasAccess($permission);
     }
 
     /**
@@ -138,7 +143,7 @@ class SentinelAuthentication implements Authentication
      */
     public function check()
     {
-        $user = Sentinel::check();
+        $user = Auth::check();
 
         if ($user) {
             return true;
@@ -153,7 +158,7 @@ class SentinelAuthentication implements Authentication
      */
     public function user()
     {
-        return Sentinel::check();
+        return Auth::check();
     }
 
     /**
@@ -162,7 +167,9 @@ class SentinelAuthentication implements Authentication
      */
     public function id()
     {
-        $user = $this->user();
+        // $user = $this->user();
+        $user = Auth::user();
+
 
         if ($user === false) {
             return 0;
@@ -173,6 +180,7 @@ class SentinelAuthentication implements Authentication
 
     public function logUserIn(UserInterface $user) : UserInterface
     {
-        return Sentinel::login($user);
+        return Auth::login($user);
+        // return Sentinel::login($user);
     }
 }

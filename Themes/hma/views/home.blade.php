@@ -19,3 +19,7 @@
         @endforeach
     </div>
 @stop
+
+@unless (Auth::check())
+    You are not signed in.
+@endunless

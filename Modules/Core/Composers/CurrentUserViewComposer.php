@@ -4,6 +4,7 @@ namespace Modules\Core\Composers;
 
 use Illuminate\Contracts\View\View;
 use Modules\User\Contracts\Authentication;
+use Illuminate\Support\Facades\Auth;
 
 class CurrentUserViewComposer
 {
@@ -19,6 +20,6 @@ class CurrentUserViewComposer
 
     public function compose(View $view)
     {
-        $view->with('currentUser', $this->auth->user());
+        $view->with('currentUser', Auth::user());
     }
 }

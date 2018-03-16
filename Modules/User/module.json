@@ -12,10 +12,6 @@
     "Modules\\User\\Providers\\RouteServiceProvider"
   ],
   "aliases": {
-    "Sentinel": "Cartalyst\\Sentinel\\Laravel\\Facades\\Sentinel",
-    "Sentry": "Cartalyst\\Sentry\\Facades\\Laravel\\Sentry",
-    "Activation": "Cartalyst\\Sentinel\\Laravel\\Facades\\Activation",
-    "Reminder": "Cartalyst\\Sentinel\\Laravel\\Facades\\Reminder"
   },
   "widgets": [
     "Modules\\User\\Widgets\\UsersWidget"

@@ -2,7 +2,8 @@
 
 namespace Modules\User\Providers;
 
-use Cartalyst\Sentinel\Laravel\SentinelServiceProvider;
+// use Cartalyst\Sentinel\Laravel\SentinelServiceProvider;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Events\BuildingSidebar;
@@ -14,7 +15,9 @@ use Modules\User\Console\RemoveModulePermissionsCommand;
 use Modules\User\Contracts\Authentication;
 use Modules\User\Entities\UserToken;
 use Modules\User\Events\Handlers\RegisterUserSidebar;
-use Modules\User\Guards\Sentinel;
+// use Modules\User\Guards\Sentinel;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Guard;
 use Modules\User\Http\Middleware\AuthorisedApiToken;
 use Modules\User\Http\Middleware\AuthorisedApiTokenAdmin;
 use Modules\User\Http\Middleware\GuestMiddleware;
@@ -40,7 +43,8 @@ class UserServiceProvider extends ServiceProvider
      * @var array
      */
     protected $providers = [
-        'Sentinel' => SentinelServiceProvider::class,
+        // 'Sentinel' => SentinelServiceProvider::class,
+        'LaravelPermissions' => AuthServiceProvider::class,
     ];
 
     /**
@@ -94,9 +98,9 @@ class UserServiceProvider extends ServiceProvider
 
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
 
-        Auth::extend('sentinel-guard', function () {
-            return new Sentinel();
-        });
+        // Auth::extend('sentinel-guard', function () {
+        //     return new Sentinel();
+        // });
     }
 
     /**

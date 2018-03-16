@@ -42,8 +42,8 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="glyphicon glyphicon-user"></i>
                     <span>
-                        <?php if ($user->present()->fullname() != ' '): ?>
-                            {{ $user->present()->fullName() }}
+                        <?php if (Auth::user()->present()->fullname() != ' '): ?>
+                            {{ Auth::user()->present()->fullName() }}
                         <?php else: ?>
                             <em>{{trans('core::core.general.complete your profile')}}.</em>
                         <?php endif; ?>
@@ -53,10 +53,10 @@
                 <ul class="dropdown-menu">
                     <!-- User image -->
                     <li class="user-header bg-light-blue">
-                        <img src="{{ $user->present()->gravatar() }}" class="img-circle" alt="User Image" />
+                        <img src="{{ Auth::user()->present()->gravatar() }}" class="img-circle" alt="User Image" />
                         <p>
-                            <?php if ($user->present()->fullname() != ' '): ?>
-                                {{ $user->present()->fullname() }}
+                            <?php if (Auth::user()->present()->fullname() != ' '): ?>
+                                {{ Auth::user()->present()->fullname() }}
                             <?php else: ?>
                                 <em>{{trans('core::core.general.complete your profile')}}.</em>
                             <?php endif; ?>
