@@ -173,3 +173,11 @@ body {
 .el-tabs__header .error {
   color: #dd4b39;
 }
+.skin-blue .sidebar-menu > li > .treeview-menu {
+  margin: 0 1px;
+  background: #fff;
+}
+.skin-blue .sidebar-menu .treeview-menu > li.active > a,
+.skin-blue .sidebar-menu .treeview-menu > li > a:hover {
+  color: #32325d;
+}
