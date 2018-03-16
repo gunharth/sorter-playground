@@ -20,9 +20,6 @@
 
 <script>
     export default {
-        props: {
-            parentId: { type: Number },
-        },
         data() {
             return {
                 fileList: [],
@@ -30,7 +27,7 @@
         },
         computed: {
             uploadUrl() {
-                return route('api.media.store-dropzone');
+                return route('api.media.store').domain + route('api.media.store').url;
             },
             requestHeaders() {
                 const userApiToken = document.head.querySelector('meta[name="user-api-token"]');

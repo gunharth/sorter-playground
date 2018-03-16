@@ -20,7 +20,6 @@
                 <div class="box box-primary">
                     <div class="box-body">
                         <div class="tool-bar el-row" style="padding-bottom: 20px;">
-                            <upload-zone :parent-id="folderId"></upload-zone>
                             <div class="actions el-col el-col-14">
                                 <new-folder :parent-id="folderId"></new-folder>
                                 <upload-button :parent-id="folderId"></upload-button>
@@ -139,7 +138,6 @@
     import UploadButton from './UploadButton.vue';
     import RenameFolder from './RenameFolder.vue';
     import MoveMediaDialog from './MoveMediaDialog.vue';
-    import UploadZone from './UploadZone.vue';
 
     export default {
         components: {
@@ -147,7 +145,6 @@
             'upload-button': UploadButton,
             'rename-folder': RenameFolder,
             'move-dialog': MoveMediaDialog,
-            'upload-zone': UploadZone,
         },
         props: {
             singleModal: { type: Boolean },

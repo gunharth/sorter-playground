@@ -15,6 +15,7 @@ abstract class BaseWidget
         $widgetViewComposer = app(WidgetViewComposer::class);
         /** @var Factory $view */
         $view = app(Factory::class);
+
         if ($view->exists($this->view())) {
             $html = $view->make($this->view())
                          ->with($this->data())

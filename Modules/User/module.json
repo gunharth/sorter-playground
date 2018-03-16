@@ -17,9 +17,6 @@
     "Activation": "Cartalyst\\Sentinel\\Laravel\\Facades\\Activation",
     "Reminder": "Cartalyst\\Sentinel\\Laravel\\Facades\\Reminder"
   },
-  "widgets": [
-    "Modules\\User\\Widgets\\UsersWidget"
-  ],
   "files": [
     "composers.php",
     "helpers.php"
